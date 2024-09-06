@@ -1,0 +1,37 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: rgba($color: #0f0f0f, $alpha: 0.9);
+  font-size: 1.7rem;
+  color: $color-primary-text;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  color: #ffffff;
+}
+
+ul {
+  list-style: none;
+}
+
+@mixin responsive-at($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}

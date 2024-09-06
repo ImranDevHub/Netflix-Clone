@@ -1,0 +1,39 @@
+@import './variable';
+@import './reset';
+
+svg.icon,
+.icon {
+  // width: 2rem;
+  font-size: 2.5rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  &__items {
+    display: inherit;
+    align-items: normal;
+  }
+
+  &__item {
+    margin-left: 2rem;
+    color: #fff;
+  }
+
+  &__logo {
+    height: 2.5rem;
+    fill: $color-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @include responsive-at(768px) {
+    &__logo {
+      height: 4rem;
+    }
+    &__items {
+      align-items: center;
+    }
+  }
+}
