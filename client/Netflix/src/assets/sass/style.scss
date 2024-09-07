@@ -37,3 +37,35 @@ svg.icon,
     }
   }
 }
+
+.grid {
+  display: grid;
+  justify-content: space-between;
+  &__1x4 {
+    grid-template-rows: 1;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer {
+  color: $color-secondary-text;
+
+  &__content {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 4rem;
+    a {
+      text-decoration: underline;
+    }
+  }
+  &__item {
+    margin-top: 1rem;
+  }
+
+  &__ask {
+    a {
+      border-bottom: 0.2rem solid $color-secondary-text;
+      font-weight: 600;
+    }
+  }
+}
