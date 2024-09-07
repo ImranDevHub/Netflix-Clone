@@ -15,7 +15,7 @@ function Banner() {
         // console.log(data);
         const result =
           data.results[Math.floor(Math.random() * (data.results.length + 1))];
-        console.log(Math.floor(Math.random() * (data.results.length + 1)));
+        // console.log(Math.floor(Math.random() * (data.results.length + 1)));
         setMovie(() => result);
         // console.log(result);
       } catch (err) {
@@ -27,10 +27,10 @@ function Banner() {
   const truncate = function (str, len) {
     return str > 150 ? str.slice(0, str.length) + '...' : str;
   };
-  console.log(movie);
+  // console.log(movie);
   return (
     <>
-      <section className="banner">
+      <section className="banner ">
         <div
           className="banner__container"
           // style={{

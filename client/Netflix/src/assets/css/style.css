@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 *,
 *::after,
 *::before {
@@ -12,10 +12,12 @@ html {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: black;
   font-size: 1.6rem;
   color: #414141;
+  overflow-x: hidden;
 }
 
 a {
@@ -44,6 +46,10 @@ svg.icon,
   font-size: 2.5rem;
 }
 
+.user {
+  height: 2.5rem;
+}
+
 .button {
   padding: 1.2rem 3rem;
 }
@@ -64,6 +70,12 @@ svg.icon,
 }
 .button__light:hover {
   background-color: #e2e2e2;
+}
+
+.header {
+  background-color: transparent;
+  position: sticky;
+  top: 0;
 }
 
 .nav {
@@ -124,10 +136,10 @@ svg.icon,
 }
 
 .banner__img {
-  width: 100vw;
+  width: 100%;
   max-height: 500px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (min-width: 768px) {
   .banner__img {
@@ -138,7 +150,7 @@ svg.icon,
   position: relative;
 }
 .banner__container::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -167,4 +179,37 @@ svg.icon,
 }
 .banner__my-list:hover {
   color: #cccccc;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.row {
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  /* For Firefox */
+  scrollbar-width: none;
+}
+.row ::-webkit-scrollbar {
+  display: none;
+}
+.row > * {
+  width: auto;
+}
+.row__posture {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  max-height: 150px;
+  transition: transform 0.3s ease;
+}
+.row__posture:hover {
+  transform: scale(1.08);
+}
+.row__posture--large {
+  max-height: 250px;
+}
+.row__posture--large:hover {
+  transform: scale(1.1);
+}
+.row__section {
+  padding: 3rem;
+} /*# sourceMappingURL=style.css.map */

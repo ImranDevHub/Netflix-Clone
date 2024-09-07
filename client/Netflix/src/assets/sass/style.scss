@@ -7,6 +7,10 @@ svg.icon,
   font-size: 2.5rem;
 }
 
+.user {
+  height: 2.5rem;
+}
+
 .button {
   padding: 1.2rem 3rem;
   &__primary {
@@ -29,6 +33,11 @@ svg.icon,
       background-color: #e2e2e2;
     }
   }
+}
+
+.header {
+  background-color: transparent;
+  position: sticky;
 }
 
 .nav {
@@ -96,7 +105,7 @@ svg.icon,
 
 .banner {
   &__img {
-    width: 100vw;
+    width: 100%;
     // height: 60vh;
     max-height: 500px;
     object-fit: cover;
@@ -143,5 +152,43 @@ svg.icon,
     &:hover {
       color: #cccccc;
     }
+  }
+}
+
+.row {
+  flex-wrap: nowrap;
+  // overflow: auto;
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For Firefox */
+  scrollbar-width: none;
+  > * {
+    width: auto;
+  }
+
+  &__posture {
+    width: 100%;
+    object-fit: cover;
+    max-height: 150px;
+    transition: transform 0.3s ease; // Smooth transition for the hover effect
+
+    &:hover {
+      transform: scale(1.08); // Add 'px' to the value
+    }
+    &--large {
+      max-height: 250px;
+      &:hover {
+        transform: scale(1.1); // Add 'px' to the value
+      }
+    }
+  }
+
+  &__section {
+    padding: 3rem;
   }
 }

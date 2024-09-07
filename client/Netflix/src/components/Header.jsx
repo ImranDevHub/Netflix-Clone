@@ -1,11 +1,12 @@
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import NotificationsNoneSharpIcon from '@mui/icons-material/NotificationsNoneSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
+import userProfile from '../assets/img/user.png';
 
 function Header() {
   return (
     <>
-      <header className="header container">
+      <header className="header px-5">
         <nav className="nav">
           <ul className="nav__items">
             <svg
@@ -54,7 +55,7 @@ function Header() {
             </li>
             <li className="nav__item">
               <a href="#">
-                <AccountCircleSharpIcon className="icon" />
+                <img src={userProfile} className="user" alt="user Profile" />
               </a>
             </li>
           </ul>
