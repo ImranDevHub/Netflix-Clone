@@ -31,9 +31,39 @@ ul {
   list-style: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
 svg.icon,
 .icon {
   font-size: 2.5rem;
+}
+
+.button {
+  padding: 1.2rem 3rem;
+}
+.button__primary {
+  background-color: #e50914;
+}
+.button__primary:hover {
+  background-color: #c11119;
+}
+.button__secondary {
+  background-color: #a3a3a3;
+}
+.button__secondary:hover {
+  background-color: #8b8b8b;
+}
+.button__light {
+  background-color: #fff;
+}
+.button__light:hover {
+  background-color: #e2e2e2;
 }
 
 .nav {
@@ -91,4 +121,50 @@ svg.icon,
 .footer__ask a {
   border-bottom: 0.2rem solid #a3a3a3;
   font-weight: 600;
+}
+
+.banner__img {
+  width: 100vw;
+  max-height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .banner__img {
+    max-height: 450px;
+  }
+}
+.banner__container {
+  position: relative;
+}
+.banner__container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 40vh;
+  z-index: 11;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.937254902));
+}
+.banner__content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 3rem;
+}
+.banner__title {
+  font-size: 3rem;
+  font-weight: 900;
+}
+.banner__overview {
+  max-width: 500px;
+  font-size: 1.4rem;
+  color: #efefef;
+}
+.banner__my-list {
+  color: #fff;
+}
+.banner__my-list:hover {
+  color: #cccccc;
 }/*# sourceMappingURL=style.css.map */

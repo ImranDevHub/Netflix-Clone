@@ -7,6 +7,30 @@ svg.icon,
   font-size: 2.5rem;
 }
 
+.button {
+  padding: 1.2rem 3rem;
+  &__primary {
+    background-color: $color-primary;
+    &:hover {
+      background-color: $color-primary-darken;
+    }
+  }
+
+  &__secondary {
+    background-color: $color-secondary-text;
+    &:hover {
+      background-color: #8b8b8b;
+    }
+  }
+
+  &__light {
+    background-color: #fff;
+    &:hover {
+      background-color: #e2e2e2;
+    }
+  }
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -66,6 +90,58 @@ svg.icon,
     a {
       border-bottom: 0.2rem solid $color-secondary-text;
       font-weight: 600;
+    }
+  }
+}
+
+.banner {
+  &__img {
+    width: 100vw;
+    // height: 60vh;
+    max-height: 500px;
+    object-fit: cover;
+  }
+  @include responsive-at(768px) {
+    &__img {
+      max-height: 450px;
+    }
+  }
+  &__container {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 40vh;
+      z-index: 11;
+      background: linear-gradient(180deg, transparent, #000000ef);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 3rem;
+  }
+  &__title {
+    font-size: 3rem;
+    font-weight: 900;
+  }
+  &__overview {
+    max-width: 500px;
+    // color: $color-secondary-text;
+    font-size: 1.4rem;
+    color: #efefef;
+  }
+
+  &__my-list {
+    color: #fff;
+    &:hover {
+      color: #cccccc;
     }
   }
 }
