@@ -1,13 +1,16 @@
 import movieTrailer from 'movie-trailer';
 import { useEffect, useState } from 'react';
 import axios from '../utils/axios';
-import Youtube from 'react-youtube';
+import YoutubeModal from './YoutubeModal';
 
 function Row({ fetchUrl, type, isLarge }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const base_img = 'https://image.tmdb.org/t/p/original';
+  let movieName = '';
 
   useEffect(() => {
     (async () => {
@@ -21,20 +24,25 @@ function Row({ fetchUrl, type, isLarge }) {
   }, [fetchUrl]);
 
   const handleTrailer = async movie => {
+    const name = movie?.name || movie?.title || movie?.original_name;
+    setSelectedMovie(() => movie);
+
     if (trailerUrl) {
       setTrailerUrl(''); // Close trailer if one is already playing
     } else {
       try {
-        const url = await movieTrailer(
-          movie?.name || movie?.title || movie?.original_name
-        );
+        const url = await movieTrailer(name);
         if (url) {
           const urlParams = new URLSearchParams(new URL(url).search);
-          //  console.log(urlParams.get('v'));
           setTrailerUrl(urlParams.get('v')); // Extract video ID
+        } else {
+          setTrailerUrl(''); // No trailer found
         }
+        setModalShow(true); // Open modal regardless of trailer availability
       } catch (err) {
         console.error('Error fetching trailer:', err);
+        setTrailerUrl(''); // No trailer found on error
+        setModalShow(true); // Still open modal to show fallback message
       }
     }
   };
@@ -63,17 +71,16 @@ function Row({ fetchUrl, type, isLarge }) {
             </div>
           ))}
         </div>
-        {trailerUrl && (
-          <Youtube
-            videoId={trailerUrl}
-            opts={{
-              width: '100%',
-              height: '390',
-              playerVars: { autoplay: 1 },
-            }}
-            onReady={event => event.target.mute()}
-          />
-        )}
+
+        <YoutubeModal
+          trailerUrl={trailerUrl && trailerUrl}
+          selectedMovie={selectedMovie}
+          show={modalShow}
+          onHide={() => {
+            setModalShow(false);
+            setTrailerUrl('');
+          }}
+        />
       </section>
     </>
   );

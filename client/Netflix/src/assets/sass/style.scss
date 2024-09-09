@@ -35,15 +35,16 @@ svg.icon,
   }
 }
 
-.header {
-  background-color: transparent;
-  position: sticky;
-}
-
 .nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: transparent;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 2rem;
   &__items {
     display: inherit;
     align-items: normal;
@@ -191,4 +192,9 @@ svg.icon,
   &__section {
     padding: 3rem;
   }
+}
+
+.sticky {
+  position: fixed;
+  background-color: #000000b5;
 }

@@ -1,13 +1,41 @@
-import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import NotificationsNoneSharpIcon from '@mui/icons-material/NotificationsNoneSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
+import { useEffect, useState } from 'react';
 import userProfile from '../assets/img/user.png';
 
 function Header() {
+  const [isHide, setIsHide] = useState(false);
+
+  useEffect(() => {
+    // const target = document.querySelector('.element-to-observe');
+    const header = document.querySelector('.header');
+    const banner = document.querySelector('.banner');
+
+    console.log(banner);
+
+    const oprCallback = function (entries) {
+      // console.log(entries);
+      const [entry] = entries;
+
+      // console.log(entry.isIntersecting);
+      setIsHide(() => !entry.isIntersecting);
+    };
+
+    const option = {
+      root: null,
+      // rootMargin: '0px',
+      threshold: 0.5,
+    };
+
+    const observe = new IntersectionObserver(oprCallback, option);
+    observe.observe(banner);
+  }, []);
+  //   console.log(isHide);
+
   return (
     <>
-      <header className="header px-5">
-        <nav className="nav">
+      <header className="header">
+        <nav className={`nav ${isHide ? 'sticky' : ''}`}>
           <ul className="nav__items">
             <svg
               viewBox="0 0 111 30"
