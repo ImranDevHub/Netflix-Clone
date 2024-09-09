@@ -72,12 +72,20 @@ svg.icon,
   background-color: #e2e2e2;
 }
 
+.offcanvas__bg {
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+
 .nav {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 999;
   background-color: transparent;
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -90,6 +98,9 @@ svg.icon,
 .nav__item {
   margin-left: 2rem;
   color: #fff;
+}
+.nav__item:hover {
+  color: #ececec;
 }
 .nav__logo {
   height: 2.5rem;
@@ -110,10 +121,13 @@ svg.icon,
 .grid {
   display: grid;
   justify-content: space-between;
+  padding: 2rem;
 }
-.grid__1x4 {
-  grid-template-rows: 1;
-  grid-template-columns: repeat(4, 1fr);
+@media screen and (min-width: 768px) {
+  .grid__1x4 {
+    grid-template-rows: 1;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .footer {
